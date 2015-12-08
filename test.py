@@ -1,5 +1,5 @@
 # coding=utf-8
-import django
+from django.utils import timezone
 import time, threading
 import json
 import datetime
@@ -46,9 +46,9 @@ def test():
 
             b = info(0, sno, tot, sbi, mday_parsed, bemp, act)
             b.save()
-            d = info.objects.filter(mday-timezone.now()>datetime.timedelta(days=1))
+            d = info.objects.filter(mday__gt=datetime.date.today())
             d.delete()
 #        print type(parsed)
-        threading.Timer(60, test).start()
+        threading.Timer(5, test).start()
 
 test()

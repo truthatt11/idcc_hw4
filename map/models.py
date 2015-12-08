@@ -23,3 +23,5 @@ class info(models.Model):
     act = models.BooleanField()
     def __str__(self):
         return self.sno
+    def outdated(self):
+        return datetime.datetime.now()-self.mday >= datetime.timedelta(days=1)
