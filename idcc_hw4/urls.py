@@ -21,5 +21,6 @@ from map.views import *
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^hello/$', helloworld),
-    url('', chart),
+    url(r'^index/(?P<pk>\d+)/$', chart),
+    url('', home),
 ]

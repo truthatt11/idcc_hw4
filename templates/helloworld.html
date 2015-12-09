@@ -14,7 +14,15 @@ em {
 </style>
 </head>
 <body>
-<h1>Hello World!</h1>
-<em>{{ current_time }}</em>
+<h1>Youbike Query</h1>
+<em>Select a station to query</em>
+
+<script>
+</script>
+
+{% for i in obj %}
+<br><a href="{% url 'map.views.chart' pk=i.sno %}">{{i.sna}}</a>
+{% endfor %}
+
 </body>
 </html>
