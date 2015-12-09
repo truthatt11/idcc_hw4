@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from map.views import helloworld
+from map.views import *
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^hello/$', helloworld),
-    url('', helloworld),
+    url('', chart),
 ]

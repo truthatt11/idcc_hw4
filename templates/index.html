@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load staticfiles %}
+    <script src='{% static "Chart.js" %}'></script>
+    <title>Youbike Query</title>
+    <style>
+    body {
+        background-color: lightyellow;
+    }
+    em {
+        color: LightSeaGreen;
+    }
+    </style>
+</head>
+
+<body>
+<h1>Hello World!</h1>
+<canvas id="myChart" width="1680" height="800"></canvas>
+<em>chart</em>
+<script>
+    var data = {
+        {% autoescape off %}
+        labels: {{labels}},
+        {% endautoescape %}
+        datasets: [
+            {
+                label: "My First dataset",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: {{ data }}
+            }
+        ]
+    };
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myLineChart = new Chart(ctx).Line(data, []);
+</script>
+</body>
+</html>

@@ -49,6 +49,6 @@ def test():
             d = info.objects.filter(mday__lt=datetime.date.today())
             d.delete()
 #        print type(parsed)
-    threading.Timer(5, test).start()
+    threading.Timer(60, test).start()
 
 test()
